@@ -1,0 +1,140 @@
+# Voting System Program
+## Overview
+
+This is a console-based voting system written in C. The program allows users to:
+1. Enter the number of candidates.
+2. Assign symbols to each candidate (from a set of predefined symbols).
+3. Cast votes for candidates.
+4. Display the results of the election, including the winner based on votes.
+
+## Features
+
+- Supports up to 10 candidates.
+- Each candidate can be assigned a unique symbol for identification.
+- Voting is conducted by entering the corresponding number of the candidate.
+- The program ensures the input is valid, with checks for symbols and votes.
+- Displays the final results, showing the candidate with the most votes.
+
+## Program Flow
+
+1. **Initialize Candidates:** 
+   - The program asks for the number of candidates (maximum 10).
+   - For each candidate, you enter a name and choose a symbol from a predefined list of symbols.
+
+2. **Voting Process:** 
+   - After entering candidates, the program asks for the number of voters.
+   - Each voter votes for one of the candidates by selecting a number corresponding to the candidate.
+
+3. **Results Display:** 
+   - The program displays the candidate names and their symbols.
+   - Once all votes are collected, the program calculates the winner.
+   - If there is a tie, the program will declare that no candidate has the majority.
+
+ Compilation and Execution
+ Requirements
+
+- A C compiler (e.g., GCC) installed on your machine.
+
+### Steps to Compile and Run
+
+1. Save the C code in a file named `voting_system.c`.
+2. Open your terminal or command prompt.
+3. Navigate to the directory where the file is located.
+4. Compile the code using the following command:
+
+   bash
+   gcc voting_system.c -o voting_system
+   
+
+5. Run the compiled program:
+
+   bash
+   ./voting_system
+   
+
+### Example Input/Output
+
+#### Input:
+
+
+Enter the number of candidates: 3
+Available Symbols: 
+1  !
+2  @
+3  #
+4  $
+5  %
+6  ^
+7  &
+8  *
+9  ~
+10 +
+
+Enter the symbol number for candidate 1: 1
+Enter the name of candidate 1: Alice
+
+Available Symbols: 
+2  @
+3  #
+4  $
+5  %
+6  ^
+7  &
+8  *
+9  ~
+10 +
+
+Enter the symbol number for candidate 2: 2
+Enter the name of candidate 2: Bob
+
+Available Symbols: 
+3  #
+4  $
+5  %
+6  ^
+7  &
+8  *
+9  ~
+10 +
+
+Enter the symbol number for candidate 3: 3
+Enter the name of candidate 3: Charlie
+
+Enter the number of voters: 5
+Voter 1, please enter your choice (1-3): 1
+Voter 2, please enter your choice (1-3): 2
+Voter 3, please enter your choice (1-3): 1
+Voter 4, please enter your choice (1-3): 3
+Voter 5, please enter your choice (1-3): 1
+
+-----RESULT-----
+The winner is: Alice
+Candidate Symbol: ! 
+with 3 votes!
+
+#### Output:
+-----RESULT-----
+The winner is: Alice
+Candidate Symbol: ! 
+with 3 votes!
+```
+
+## Explanation of Code
+### Key Functions:
+- `fillCandidate(int cNum)`: This function handles the process of filling candidate information including their name and symbol. It ensures the symbol chosen by the candidate is available.
+- `displayAllCandidates()`: This function displays the names of all the candidates along with their assigned symbols.
+- `getVotes(int voterCount)`: This function allows each voter to cast their vote. It ensures the voter selects a valid candidate.
+- `getResults()`: This function calculates and displays the results of the election. It checks the total votes and determines the winner or if there’s a tie.
+### Data Structures:
+- **Candidate Structure:**
+  The `Candidate` structure holds the name, votes, and symbol for each candidate.
+- **Global Arrays:**
+  - `allCandidates[MAX_C]`: Holds all candidate details.
+  - `symbols[10]`: Array of predefined symbols that candidates can choose from.
+  - `symbolTaken[11]`: Keeps track of which symbols have been taken.
+## Limitations
+- The program currently only runs in a console or terminal.
+- It does not have a persistent database to save results after program termination.
+- Maximum number of candidates is limited to 10.
+## Conclusion
+This simple C program simulates a basic voting system where users can enter candidate information, vote, and display results. The program emphasizes input validation to ensure only valid candidate symbols and votes are allowed. It is a useful example of implementing basic data structures and user interaction in C.
